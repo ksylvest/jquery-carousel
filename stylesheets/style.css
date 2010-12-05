@@ -1,0 +1,71 @@
+.carousel
+{
+  text-align: center;
+  width: 480px;
+}
+
+.carousel .previews
+{
+  overflow: hidden;
+  width: 480px;
+  height: 270px;
+}
+
+.carousel .preview
+{
+  float: left;
+  width: 480px;
+  height: 270px;
+}
+
+.carousel .controls
+{
+  height: 32px;
+}
+
+.carousel .controls .page
+{
+  width: 20px;
+  height: 20px;
+  margin: 6px 0px;
+  outline: none;
+  display: inline-block;
+  background-image: url(../images/item.png);
+  background-repeat: no-repeat;
+}
+
+.carousel .controls .prev
+{
+  width: 32px;
+  height: 32px;
+  float: left;
+  outline: none;
+  display: block;
+  background-image: url(../images/prev.png);
+  background-repeat: no-repeat;
+}
+
+.carousel .controls .next
+{
+  width: 32px;
+  height: 32px;
+  float: right;
+  outline: none;
+  display: block;
+  background-image: url(../images/next.png);
+  background-repeat: no-repeat;
+}
+
+.carousel .controls .next:hover,
+.carousel .controls .prev:hover,
+.carousel .controls .page:hover
+{
+  background-position: 0% 50%;
+}
+
+.carousel .controls .next:active,
+.carousel .controls .prev:active,
+.carousel .controls .page.active
+{
+  background-position: 0% 100%;
+}
