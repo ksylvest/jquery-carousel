@@ -13,7 +13,7 @@
       axis:     'x',
       spacing:  '10',
       active:   'active',
-      easing:   'swing',
+      easing:   'easeInOutBack',
       prev:     '.prev',
       next:     '.next',
       page:     '.page',
