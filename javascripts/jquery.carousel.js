@@ -1,7 +1,7 @@
 /*!
  * jQuery Carousel
  *
- * Copyright 2010 Kevin Sylvestre
+ * Copyright 2010 - 2011 Kevin Sylvestre
  */
 
 (function ($) {
@@ -13,7 +13,7 @@
       axis:     'x',
       spacing:  '10',
       active:   'active',
-      easing:   'easeInOutBack',
+      easing:   'swing',
       prev:     '.prev',
       next:     '.next',
       page:     '.page',
