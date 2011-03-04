@@ -1,21 +1,17 @@
-jQuery Carousel
-===============
-
+# jQuery Carousel
 
 Carousel is a jQuery plugin designed to provide paginating and scrolling to sites. The carousel supports both x and y axis and can be fully customized.
 
-Installation
-------------
+## Installation
 
 To install copy the *images*, *javascripts*, and *stylesheets* directories into your project and add the following snippet to the header:
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
     <script src="javascript/jquery.carousel.js" type="text/javascript"></script>
     <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
   
-Examples
---------
+## Examples
 
 Setting up a carousel is easy. The following snippet is a good start:
     
@@ -42,7 +38,6 @@ Setting up a carousel is easy. The following snippet is a good start:
       $('.carousel').carousel();
     </script>
 
-Copyright
----------
+## Copyright
 
-Copyright (c) 2010 Kevin Sylvestre. See LICENSE for details.
+Copyright (c) 2010 - 2011 Kevin Sylvestre. See LICENSE for details.
