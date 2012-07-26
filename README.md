@@ -40,4 +40,4 @@ Setting up a carousel is easy. The following snippet is a good start:
 
 ## Copyright
 
-Copyright (c) 2010 - 2011 Kevin Sylvestre. See LICENSE for details.
+Copyright (c) 2010 - 2012 Kevin Sylvestre. See LICENSE for details.
