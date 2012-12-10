@@ -41,20 +41,16 @@ Copyright 2010 - 2012 Kevin Sylvestre
 
   })();
 
-  window.Animation = Animation;
-
   Carousel = (function() {
 
-    Carousel.defaults = {
-      interval: 4000,
-      pause: "hover"
-    };
+    Carousel.defaults = {};
 
     function Carousel($el, settings) {
-      this.$el = $el;
-      if (settings) {
-        this.settings = $.extend({}, Carousel.defaults, settings);
+      if (settings == null) {
+        settings = {};
       }
+      this.$el = $el;
+      this.settings = $.extend({}, Carousel.defaults, settings);
     }
 
     Carousel.prototype.next = function() {

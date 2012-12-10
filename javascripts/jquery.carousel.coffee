@@ -19,17 +19,13 @@ class Animation
     el = $el[0]
     return result for type, result of @transitions when el.style[type]?
 
-window.Animation = Animation
-
 class Carousel
 
-  @defaults:
-    interval: 4000
-    pause: "hover"
+  @defaults: {}
 
-  constructor: ($el, settings) ->
+  constructor: ($el, settings = {}) ->
     @$el = $el
-    @settings = $.extend {}, Carousel.defaults, settings if settings
+    @settings = $.extend {}, Carousel.defaults, settings
 
   next: ->
     @go("next")
@@ -54,23 +50,23 @@ class Carousel
   go: (direction) ->
     $active = @$active()
     animating = "#{direction}ing"
-    
+
     $pending = $active[direction]()
-    $pending = @$fallback(direction) unless $pending.length 
-    
+    $pending = @$fallback(direction) unless $pending.length
+
     inverse = @inverse(direction)
     transition = Animation.transition($active)
-    
+
     $pending.addClass(direction)
     $pending.offset().position
-    
+
     $active.addClass(animating)
     $pending.addClass(animating).addClass(direction)
-    
-    callback = -> 
+
+    callback = ->
       $active.removeClass('active').removeClass(animating)
       $pending.addClass('active').removeClass(animating).removeClass(direction)
-    
+
     if transition? then $active.one(transition, callback) else callback()
 
   $: (selector) ->
