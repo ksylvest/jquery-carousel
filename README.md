@@ -16,13 +16,11 @@ To install copy the *images*, *javascripts*, and *stylesheets* directories into 
 Setting up a carousel is easy. The following snippet is a good start:
     
     <div class="carousel">
-      <div class="previews">
-        <div class="overflow">
-          <div class="preview"><img src="images/sample-01.png" /></div>
-          <div class="preview"><img src="images/sample-02.png" /></div>
-          <div class="preview"><img src="images/sample-03.png" /></div>
-          <div class="preview"><img src="images/sample-04.png" /></div>
-        </div>
+      <div class="slides">
+        <div class="slide"><img src="images/sample-01.png" /></div>
+        <div class="slide"><img src="images/sample-02.png" /></div>
+        <div class="slide"><img src="images/sample-03.png" /></div>
+        <div class="slide"><img src="images/sample-04.png" /></div>
       </div>
       <div class="controls">
         <a href="#" class="next"></a>
@@ -33,10 +31,6 @@ Setting up a carousel is easy. The following snippet is a good start:
         <a href="#" class="page"></a>
       </div>
     </div>
-
-    <script type="text/javascript">
-      $('.carousel').carousel();
-    </script>
 
 ## Copyright
 
