@@ -1,0 +1,38 @@
+{
+  "name": "carousel",
+  "title": "jQuery Carousel",
+  "description": "Carousel is a jQuery plugin designed to provide paginating and scrolling to sites. The carousel supports both x and y axis and can be fully customized.",
+  "keywords": 
+  [
+    "carousel",
+    "animation"
+  ],
+  "version": "2.1.2",
+  "author": {
+    "name": "Kevin Sylvestre",
+    "url": "https://github.com/ksylvest/jquery-carousel/AUTHORS"
+  },
+  "maintainers": 
+  [
+    {
+      "name": "Kevin Sylvestre",
+      "email": "kevin@ksylvest.com",
+      "url": "http://ksylvest.net"
+    }
+  ],
+  "licenses": 
+  [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ksylvest/jquery-carousel/LICENSE"
+    }
+  ],
+  "bugs": "https://github.com/ksylvest/jquery-carousel/issues",
+  "docs": "https://github.com/ksylvest/jquery-carousel",
+  "homepage": "https://github.com/ksylvest/jquery-carousel",
+  "download": "http://code.jquery.com/#carousel",
+  "dependencies": 
+  {
+    "jquery": ">1.5"
+  }
+}
