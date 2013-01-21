@@ -1,6 +1,6 @@
-source 'https://rubygems.org'
+source :rubygems
 
 gem 'haml'
 gem 'sass'
-gem 'jasmine'
+gem 'neat'
 gem 'bourbon'
