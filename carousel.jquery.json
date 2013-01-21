@@ -1,5 +1,5 @@
 {
-  "name": "carousel",
+  "name": "jquery-carousel",
   "title": "jQuery Carousel",
   "description": "Carousel is a jQuery plugin designed to provide paginating and scrolling to sites. The carousel supports both x and y axis and can be fully customized.",
   "keywords": 
