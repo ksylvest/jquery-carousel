@@ -4,7 +4,7 @@ Carousel is a jQuery plugin created to provide a scrolling gallery.
 
 ## Installation
 
-To install copy the *images*, *javascripts*, and *stylesheets* directories into your project and add the following snippet to the header:
+To install copy the *javascripts* and *stylesheets* directories into your project and add the following snippet to the header:
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
     <script src="javascript/jquery.carousel.js" type="text/javascript"></script>

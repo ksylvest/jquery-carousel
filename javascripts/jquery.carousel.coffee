@@ -1,6 +1,6 @@
 ###
 jQuery Carousel
-Copyright 2010 - 2012 Kevin Sylvestre
+Copyright 2010 - 2013 Kevin Sylvestre
 ###
 
 "use strict"
