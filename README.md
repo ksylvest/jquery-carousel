@@ -1,6 +1,6 @@
 # jQuery Carousel
 
-Carousel is a jQuery plugin designed to provide paginating and scrolling to sites. The carousel supports both x and y axis and can be fully customized.
+Carousel is a jQuery plugin created to provide a scrolling gallery.
 
 ## Installation
 
