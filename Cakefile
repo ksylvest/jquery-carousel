@@ -16,4 +16,4 @@ task 'watch', 'SASS and CoffeeScript asset watching', (options) ->
   command 'coffee', '-wc', 'javascripts'
 
 task 'compile', 'HAML sample compilation', (opions) ->
-  command 'haml', 'sample.haml', 'sample.html'
+  command 'haml', 'index.haml', 'index.html'
