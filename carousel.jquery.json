@@ -1,5 +1,5 @@
 {
-  "name": "jquery-carousel",
+  "name": "carousel",
   "title": "jQuery Carousel",
   "description": "Carousel is a jQuery plugin created to provide a scrolling gallery.",
   "keywords": 
@@ -12,14 +12,6 @@
     "name": "Kevin Sylvestre",
     "url": "https://github.com/ksylvest/jquery-carousel/AUTHORS"
   },
-  "maintainers": 
-  [
-    {
-      "name": "Kevin Sylvestre",
-      "email": "kevin@ksylvest.com",
-      "url": "http://ksylvest.net"
-    }
-  ],
   "licenses": 
   [
     {
@@ -28,9 +20,9 @@
     }
   ],
   "bugs": "https://github.com/ksylvest/jquery-carousel/issues",
-  "docs": "https://github.com/ksylvest/jquery-carousel",
-  "homepage": "https://github.com/ksylvest/jquery-carousel",
-  "download": "http://code.jquery.com/#carousel",
+  "docs": "https://ksylvest.github.com/jquery-carousel",
+  "homepage": "https://ksylvest.github.com/jquery-carousel",
+  "download": "https://ksylvest.github.com/jquery-carousel",
   "dependencies": 
   {
     "jquery": ">1.5"
