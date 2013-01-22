@@ -1,13 +1,13 @@
 {
   "name": "jquery-carousel",
   "title": "jQuery Carousel",
-  "description": "Carousel is a jQuery plugin designed to provide paginating and scrolling to sites. The carousel supports both x and y axis and can be fully customized.",
+  "description": "Carousel is a jQuery plugin created to provide a scrolling gallery.",
   "keywords": 
   [
     "carousel",
     "animation"
   ],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": {
     "name": "Kevin Sylvestre",
     "url": "https://github.com/ksylvest/jquery-carousel/AUTHORS"
