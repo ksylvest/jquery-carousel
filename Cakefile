@@ -1,3 +1,5 @@
+PROJECT = 'jquery.carousel'
+
 {spawn, exec} = require 'child_process'
 
 command = (name, args...) ->
@@ -11,9 +13,13 @@ command = (name, args...) ->
 
   proc.on 'exit', (status) -> process.exit(1) if status != 0
 
-task 'watch', 'SASS and CoffeeScript asset watching', (options) ->
+task 'watch', 'SASS and CoffeeScript', (options) ->
   command 'sass', '--watch', 'stylesheets:stylesheets'
   command 'coffee', '-wc', 'javascripts'
 
-task 'compile', 'HAML sample compilation', (opions) ->
+task 'compile', 'HAML', (opions) ->
   command 'haml', 'index.haml', 'index.html'
+
+task 'package', 'Package CSS and JS', (options) ->
+  command 'zip', '-s', "packages/#{PROJECT}.zip", "javascripts/#{PROJECT}.js", "stylesheets/#{PROJECT}.css"
+  command 'tar', '-cf', "packages/#{PROJECT}.tar", "javascripts/#{PROJECT}.js", "stylesheets/#{PROJECT}.css"
