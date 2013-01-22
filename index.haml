@@ -14,8 +14,29 @@
     .content
       %h1 jQuery Carousel
       %p Carousel is a jQuery plugin created to provide a scrolling gallery.
+      %section.examples
+        .carousel
+          .previews
+            .preview.active
+              %img{ src: "samples/sample-01.png" }
+            .preview
+              %img{ src: "samples/sample-02.png" }
+            .preview
+              %img{ src: "samples/sample-03.png" }
+            .preview
+              %img{ src: "samples/sample-04.png" }
+            .preview
+              %img{ src: "samples/sample-05.png" }
+          .controls
+            %a.next{ href: "#", data: { action: 'next' } } ›
+            %a.prev{ href: "#", data: { action: 'prev' } } ‹
       %h2 Installation
-      %p To install copy the javascripts and stylesheets directories into your project and add the following snippet to the header:
+      %p To install download one of these packages and include the jquery.carousel.js and jquery.carousel.css files in your head with the following:
+      %section.formats
+        .format
+          %a.zip{ href: "packages/jquery.carousel.zip" }
+        .format
+          %a.tar{ href: "packages/jquery.carousel.tar" }
       %pre
         %code{ data: { language: "html" } }
           = preserve do
@@ -41,21 +62,5 @@
                   <a class='prev' data-action='prev' href='#'>‹</a>
                 </div>
               </div>
-      %section.examples
-        .carousel
-          .previews
-            .preview.active
-              %img{ src: "samples/sample-01.png" }
-            .preview
-              %img{ src: "samples/sample-02.png" }
-            .preview
-              %img{ src: "samples/sample-03.png" }
-            .preview
-              %img{ src: "samples/sample-04.png" }
-            .preview
-              %img{ src: "samples/sample-05.png" }
-          .controls
-            %a.next{ href: "#", data: { action: 'next' } } ›
-            %a.prev{ href: "#", data: { action: 'prev' } } ‹
       %p Copyright (c) 2010 - 2013 Kevin Sylvestre. See LICENSE for details.
       
