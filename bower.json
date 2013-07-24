@@ -1,0 +1,21 @@
+{
+  "name": "carousel",
+  "version": "1.0.8",
+  "main": [ "./javascripts/jquery.carousel.js","./stylesheets/carousel.gridly.css" ],
+  "ignore": 
+  [
+    "**/*.sass",
+    "**/*.coffee",
+    "**/sample.*",
+    "**/rainbow.*",
+    "bourbon",
+    "neat",
+    "packages",
+    "images",
+    "Cakefile",
+    "Gemfile",
+    "Gemfile.*",
+    "index.*"
+  ],
+  "dependencies": { "jquery": "latest" }
+}
