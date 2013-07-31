@@ -32,6 +32,11 @@ Setting up a carousel is easy. The following snippet is a good start:
       </div>
     </div>
 
+## Status
+
+[![Status](https://travis-ci.org/ksylvest/jquery-carousel.png)](https://travis-ci.org/ksylvest/jquery-carousel)
+
+
 ## Copyright
 
 Copyright (c) 2010 - 2013 Kevin Sylvestre. See LICENSE for details.
