@@ -2,7 +2,7 @@
 /*
 jQuery Carousel
 Copyright 2010 - 2013 Kevin Sylvestre
-1.1.1
+1.1.2
 */
 
 
@@ -18,7 +18,6 @@ Copyright 2010 - 2013 Kevin Sylvestre
     Animation.transitions = {
       "webkitTransition": "webkitTransitionEnd",
       "mozTransition": "mozTransitionEnd",
-      "msTransition": "msTransitionEnd",
       "oTransition": "oTransitionEnd",
       "transition": "transitionend"
     };
