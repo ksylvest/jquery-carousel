@@ -21,7 +21,7 @@ Lastly this plugin is registered as a https://rails-assets.org/ to simplify inte
 
     + source 'https://rails-assets.org'
     ...
-    + gem 'rails-assets-spin'
+    + gem 'rails-assets-carousel'
 
 **application.css**
 
