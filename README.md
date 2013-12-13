@@ -15,6 +15,28 @@ This plugin is also registered under http://bower.io/ to simplify integration. T
     npm install -g bower
     bower install carousel
 
+Lastly this plugin is registered as a https://rails-assets.org/ to simplify integration with Ruby on Rails applications:
+
+**Gemfile**
+
+    + source 'https://rails-assets.org'
+    ...
+    + gem 'rails-assets-spin'
+
+**application.css**
+
+    /*
+     ...
+     *= require carousel
+     ...
+    */
+
+**application.js**
+
+    //= require jquery
+    ...
+    //= require carousel
+
 ## Example
 
 Setting up a carousel is easy. The following snippet is a good start:
