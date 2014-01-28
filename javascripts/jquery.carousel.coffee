@@ -1,7 +1,7 @@
 ###
 jQuery Carousel
 Copyright 2010 - 2013 Kevin Sylvestre
-1.1.3
+1.1.4
 ###
 
 "use strict"
@@ -26,6 +26,7 @@ class Carousel
   constructor: ($el, settings = {}) ->
     @$el = $el
     @settings = $.extend {}, Carousel.defaults, settings
+    @$previews().first().toggleClass('active') unless @$active().length
 
   next: ->
     @go("next")
@@ -38,6 +39,9 @@ class Carousel
       when "prev" then "last"
       when "next" then "first"
     @$(".previews .preview")[method]()
+
+  $previews: ->
+    @$(".previews .preview")
 
   $active: ->
     @$(".previews .preview.active")
@@ -94,3 +98,6 @@ $(document).on "click.carousel", "[data-action]", (event) ->
 
   $target.carousel(options)
 
+$ ->
+  $('.carousel').each ->
+    $(this).carousel()

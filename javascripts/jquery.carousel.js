@@ -2,7 +2,7 @@
 /*
 jQuery Carousel
 Copyright 2010 - 2013 Kevin Sylvestre
-1.1.3
+1.1.4
 */
 
 
@@ -47,6 +47,9 @@ Copyright 2010 - 2013 Kevin Sylvestre
       }
       this.$el = $el;
       this.settings = $.extend({}, Carousel.defaults, settings);
+      if (!this.$active().length) {
+        this.$previews().first().toggleClass('active');
+      }
     }
 
     Carousel.prototype.next = function() {
@@ -68,6 +71,10 @@ Copyright 2010 - 2013 Kevin Sylvestre
         }
       })();
       return this.$(".previews .preview")[method]();
+    };
+
+    Carousel.prototype.$previews = function() {
+      return this.$(".previews .preview");
     };
 
     Carousel.prototype.$active = function() {
@@ -145,6 +152,12 @@ Copyright 2010 - 2013 Kevin Sylvestre
     $target = $this.closest(".carousel");
     options = $.extend({}, $target.data(), $this.data());
     return $target.carousel(options);
+  });
+
+  $(function() {
+    return $('.carousel').each(function() {
+      return $(this).carousel();
+    });
   });
 
 }).call(this);

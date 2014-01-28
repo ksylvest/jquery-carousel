@@ -44,6 +44,24 @@
   }
 }
 
+@function container-shift($shift: $shift) {
+  $parent-columns: $grid-columns !default;
+
+  @if length($shift) == 3 {
+    $container-columns: nth($shift, 3);
+    @return $container-columns;
+  }
+
+  @else if length($shift) == 2 {
+    $container-columns: nth($shift, 2);
+    @return $container-columns;
+  }
+
+  @else {
+    @return $parent-columns;
+  }
+}
+
 // Generates a striped background
 @function gradient-stops($grid-columns, $color: $visual-grid-color) {
   $transparent: rgba(0,0,0,0);
@@ -56,17 +74,52 @@
 
   @for $i from 1 to $grid-columns*2 {
     @if is-even($i) {
-      $values: append($values, $transparent $column-offset);
-      $values: append($values, $color $column-offset);
+      $values: append($values, $transparent $column-offset, comma);
+      $values: append($values, $color $column-offset, comma);
       $column-offset: $column-offset + $column-width;
     }
 
     @else {
-      $values: append($values, $color $column-offset);
-      $values: append($values, $transparent $column-offset);
+      $values: append($values, $color $column-offset, comma);
+      $values: append($values, $transparent $column-offset, comma);
       $column-offset: $column-offset + $gutter-width;
     }
   }
 
   @return $values;
+}
+
+// Layout direction
+@function get-direction($layout, $default) {
+  $direction: nil;
+  
+  @if $layout == LTR or $layout == RTL {
+    $direction: direction-from-layout($layout);
+  } @else {
+    $direction: direction-from-layout($default);
+  }
+
+  @return $direction;
+}
+
+@function direction-from-layout($layout) {
+  $direction: nil;
+
+  @if $layout == LTR {
+    $direction: right;
+  } @else {
+    $direction: left;
+  }
+
+  @return $direction;
+}
+
+@function get-opposite-direction($direction) {
+  $opposite-direction: left;
+
+  @if $direction == left {
+    $opposite-direction: right;
+  }
+
+  @return $opposite-direction;
 }
