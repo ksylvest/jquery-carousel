@@ -1,21 +1,32 @@
 {
   "name": "carousel",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "main": [ "./javascripts/jquery.carousel.js","./stylesheets/jquery.carousel.css" ],
   "ignore": 
   [
+    "README*",
+    "LICENSE*",
     "**/*.sass",
     "**/*.coffee",
     "**/sample.*",
-    "**/rainbow.*",
+    "**/rainbow.js",
+    "**/rainbow.css",
+    "**/jquery.js",
+    "**/jquery.css",
+    "samples",
+    "spec",
     "bourbon",
     "neat",
     "packages",
     "images",
-    "Cakefile",
-    "Gemfile",
-    "Gemfile.*",
-    "index.*"
+    "Cakefile*",
+    "Rakefile*",
+    "Gemfile*",
+    ".git*",
+    ".travis*",
+    "*bower.json",
+    "*jquery.json",
+    "index*"
   ],
   "dependencies": { "jquery": "latest" }
 }
