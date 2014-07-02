@@ -1,7 +1,7 @@
 ###
 jQuery Carousel
-Copyright 2010 - 2013 Kevin Sylvestre
-1.1.7
+Copyright 2010 - 2014 Kevin Sylvestre
+1.1.8
 ###
 
 "use strict"
@@ -18,6 +18,10 @@ class Animation
   @transition: ($el) ->
     el = $el[0]
     return result for type, result of @transitions when el.style[type]?
+
+  @execute: ($el, callback) ->
+    transition = @transition($el)
+    if transition? then $el.one(transition, callback) else callback()
 
 class Carousel
 
@@ -46,32 +50,42 @@ class Carousel
   $active: ->
     @$(".previews .preview.active")
 
-  inverse: (direction) ->
-    switch direction
-      when "next" then "prev"
-      when "prev" then "next"
-
-  go: (direction) ->
-    $active = @$active()
+  swap: ($active, $pending, direction, activated = 'active') ->
     animating = "#{direction}ing"
-
-    $pending = $active[direction]()
-    $pending = @$fallback(direction) unless $pending.length
-
-    inverse = @inverse(direction)
-    transition = Animation.transition($active)
 
     $pending.addClass(direction)
     $pending.offset().position
 
     $active.addClass(animating)
-    $pending.addClass(animating).addClass(direction)
+    $pending.addClass(animating)
 
     callback = ->
-      $active.removeClass('active').removeClass(animating)
-      $pending.addClass('active').removeClass(animating).removeClass(direction)
+      $active.removeClass(activated).removeClass(animating)
+      $pending.addClass(activated).removeClass(animating).removeClass(direction)
 
-    if transition? then $active.one(transition, callback) else callback()
+    Animation.execute($active, callback)
+
+
+  page: (index) ->
+    $active = @$active()
+    $pending = @$previews().eq(index)
+
+    existing = @$previews().index($active)
+    direction = if existing > index then 'prev' else 'next'
+
+    return if $pending.is($active)
+
+    @swap($active, $pending, direction)
+
+  go: (direction) ->
+    $active = @$active()
+
+    $pending = $active[direction]()
+    $pending = @$fallback(direction) unless $pending.length
+
+    return if $pending.is($active)
+
+    @swap($active, $pending, direction)
 
   $: (selector) ->
     @$el.find(selector)
@@ -84,21 +98,22 @@ $.fn.extend
       data = $this.data("carousel")
       options = $.extend {}, $.fn.carousel.defaults, typeof option is "object" and option
       action = if typeof option is "string" then option else option.action
+      page = option.page unless typeof options is "string"
 
       $this.data "carousel", data = new Carousel($this, options) unless data?
       data[action]() if action?
+      data.page(options.page) if page?
+      
 
-$(document).on "click.carousel", "[data-action]", "[data-page]", (event) ->
+$(document).on "click.carousel", "[data-action],[data-page]", (event) ->
   $this = $(this)
   $target = $this.closest(".carousel")
-  return if $target.length is 0
+  return unless $target.length
 
   event.preventDefault()
   event.stopPropagation()
 
   options = $.extend {}, $target.data(), $this.data()
-
-  debugger
 
   $target.carousel(options)
 

@@ -61,4 +61,4 @@ Setting up a carousel is easy. The following snippet is a good start:
 
 ## Copyright
 
-Copyright (c) 2010 - 2013 Kevin Sylvestre. See LICENSE for details.
+Copyright (c) 2010 - 2014 Kevin Sylvestre. See LICENSE for details.
