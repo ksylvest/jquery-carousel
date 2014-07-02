@@ -1,6 +1,6 @@
 /* jQuery Carousel
  * Copyright 2010 - 2013 Kevin Sylvestre
- * 1.1.6
+ * 1.1.7
  */
 .carousel {
   position: relative;
@@ -39,21 +39,25 @@
         .carousel .previews .preview.prev.preving {
           left: 0; }
       .carousel .previews .preview img {
-        max-width: 100%;
-        max-height: 100%; }
+        width: 100%;
+        height: auto; }
   .carousel .controls .pages {
     position: absolute;
     height: 40px;
-    bottom: 0;
     left: 0;
-    right: 0; }
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; }
     .carousel .controls .pages .page {
       width: 10px;
       height: 10px;
-      margin: 10px;
+      margin: 5px;
       outline: none;
+      cursor: pointer;
       display: inline-block;
-      border-radius: 5px;
+      border-radius: 50%;
       -webkit-transition: all 0.4s ease-in-out;
       -moz-transition: all 0.4s ease-in-out;
       transition: all 0.4s ease-in-out;
@@ -61,7 +65,7 @@
       .carousel .controls .pages .page:hover {
         background: rgba(0, 0, 0, 0.6); }
       .carousel .controls .pages .page .active {
-        background: black; }
+        background: rgba(0, 0, 0, 0.8); }
   .carousel .controls .prev, .carousel .controls .next {
     font-size: 40px;
     font-weight: 200;
@@ -72,7 +76,8 @@
     width: 40px;
     height: 40px;
     margin: -20px 0;
-    border-radius: 20px;
+    cursor: pointer;
+    border-radius: 50%;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
@@ -87,3 +92,27 @@
   .carousel .controls .next {
     top: 50%;
     right: 20px; }
+  .carousel .controls .pages {
+    bottom: 0;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+  .carousel .controls .prev {
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+  .carousel .controls .next {
+    right: 0;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+  .carousel:hover .controls .pages {
+    bottom: 0;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .carousel:hover .controls .prev {
+    left: 20px;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .carousel:hover .controls .next {
+    right: 20px;
+    opacity: 1;
+    filter: alpha(opacity=100); }

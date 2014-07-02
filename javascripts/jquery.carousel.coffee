@@ -1,7 +1,7 @@
 ###
 jQuery Carousel
 Copyright 2010 - 2013 Kevin Sylvestre
-1.1.6
+1.1.7
 ###
 
 "use strict"
@@ -88,13 +88,17 @@ $.fn.extend
       $this.data "carousel", data = new Carousel($this, options) unless data?
       data[action]() if action?
 
-$(document).on "click.carousel", "[data-action]", (event) ->
+$(document).on "click.carousel", "[data-action]", "[data-page]", (event) ->
+  $this = $(this)
+  $target = $this.closest(".carousel")
+  return if $target.length is 0
+
   event.preventDefault()
   event.stopPropagation()
 
-  $this = $(this)
-  $target = $this.closest(".carousel")
   options = $.extend {}, $target.data(), $this.data()
+
+  debugger
 
   $target.carousel(options)
 

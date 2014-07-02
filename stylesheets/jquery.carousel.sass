@@ -1,12 +1,23 @@
 /*
  * jQuery Carousel
  * Copyright 2010 - 2013 Kevin Sylvestre
- * 1.1.6
+ * 1.1.7
  */
 
 @import bourbon/bourbon
 
 $duration: 0.4s
+
+@mixin rounded($radius: 50%)
+  border:
+    radius: $radius
+
+@mixin opacity($opacity: 1.0)
+  opacity: $opacity
+  filter: alpha(opacity=$opacity * 100.0)
+
+@mixin animated
+  +transition(all $duration ease-in-out)
 
 .carousel
   position: relative
@@ -19,7 +30,7 @@ $duration: 0.4s
       display: none
       position: relative
       width: 100%
-      +transition(all $duration ease-in-out)
+      +animated
       &.active
         top: 0
         left: 0
@@ -43,28 +54,30 @@ $duration: 0.4s
         &.preving
           left: 0
       img
-        max-width: 100%
-        max-height: 100%
+        width: 100%
+        height: auto
   .controls
     .pages
       position: absolute
       height: 40px
+      left: 0
+      right: 0
       bottom: 0
-      left:   0
-      right:  0
+      +animated
       .page
         width: 10px
         height: 10px
-        margin: 10px
+        margin: 5px
         outline: none
+        cursor: pointer
         display: inline-block
-        border-radius: 5px
-        +transition(all $duration ease-in-out)
+        +rounded
+        +animated
         background: rgba(black, 0.4)
         &:hover
           background: rgba(black, 0.6)
         .active
-          background: rgba(black, 1.0)
+          background: rgba(black, 0.8)
     .prev,.next
       font-size: 40px
       font-weight: 200
@@ -75,8 +88,9 @@ $duration: 0.4s
       width: 40px
       height: 40px
       margin: -20px 0
-      border-radius: 20px
-      +transition(all $duration ease-in-out)
+      cursor: pointer
+      +rounded
+      +animated
       color: rgba(white, 0.8)
       background: rgba(black, 0.4)
       &:hover
@@ -88,3 +102,26 @@ $duration: 0.4s
     .next
       top: 50%
       right: 20px
+  &
+    .controls
+      .pages
+        bottom: 0
+        +opacity(0.0)
+      .prev
+        left: 0
+        +opacity(0.0)
+      .next
+        right: 0
+        +opacity(0.0)
+  &:hover
+    .controls
+      .pages
+        bottom: 0
+        +opacity(1.0)
+      .prev
+        left: 20px
+        +opacity(1.0)
+      .next
+        right: 20px
+        +opacity(1.0)
+  

@@ -2,7 +2,7 @@
 /*
 jQuery Carousel
 Copyright 2010 - 2013 Kevin Sylvestre
-1.1.6
+1.1.7
 */
 
 
@@ -144,13 +144,17 @@ Copyright 2010 - 2013 Kevin Sylvestre
     }
   });
 
-  $(document).on("click.carousel", "[data-action]", function(event) {
+  $(document).on("click.carousel", "[data-action]", "[data-page]", function(event) {
     var $target, $this, options;
-    event.preventDefault();
-    event.stopPropagation();
     $this = $(this);
     $target = $this.closest(".carousel");
+    if ($target.length === 0) {
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
     options = $.extend({}, $target.data(), $this.data());
+    debugger;
     return $target.carousel(options);
   });
 
