@@ -1,12 +1,22 @@
 ###
 jQuery Carousel
 Copyright 2010 - 2014 Kevin Sylvestre
-1.1.8
+1.1.9
 ###
 
 "use strict"
 
 $ = jQuery
+
+class Timer
+  @every: (duration, callback) ->
+    setInterval(callback, duration)
+
+  @after: (duration, callback) ->
+    setTimeout(callback, duration)
+
+  @clear: (interval) ->
+    clearInterval(interval)
 
 class Animation
   @transitions:
@@ -25,12 +35,17 @@ class Animation
 
 class Carousel
 
-  @defaults: {}
+  @defaults: { cycle: 5000 }
 
   constructor: ($el, settings = {}) ->
     @$el = $el
     @settings = $.extend {}, Carousel.defaults, settings
     @$previews().first().toggleClass('active') unless @$active().length
+
+    if settings.cycle?
+      @cycle()
+      @$el.on('mouseenter', $.proxy(@pause, @))
+      @$el.on('mouseleave', $.proxy(@cycle, @))
 
   next: ->
     @go("next")
@@ -50,7 +65,15 @@ class Carousel
   $active: ->
     @$(".previews .preview.active")
 
+  cycle: ->
+    @timer ?= Timer.every(@settings.cycle, $.proxy(@next || @prev, @))
+
+  pause: ->
+    Timer.clear(@timer) if @timer
+    delete @timer
+
   swap: ($active, $pending, direction, activated = 'active') ->
+    cycling = @interval
     animating = "#{direction}ing"
 
     $pending.addClass(direction)
@@ -65,8 +88,9 @@ class Carousel
 
     Animation.execute($active, callback)
 
-
   page: (index) ->
+    @pause()
+
     $active = @$active()
     $pending = @$previews().eq(index)
 
@@ -103,7 +127,6 @@ $.fn.extend
       $this.data "carousel", data = new Carousel($this, options) unless data?
       data[action]() if action?
       data.page(options.page) if page?
-      
 
 $(document).on "click.carousel", "[data-action],[data-page]", (event) ->
   $this = $(this)
@@ -116,7 +139,3 @@ $(document).on "click.carousel", "[data-action],[data-page]", (event) ->
   options = $.extend {}, $target.data(), $this.data()
 
   $target.carousel(options)
-
-$ ->
-  $('.carousel').each ->
-    $(this).carousel()
