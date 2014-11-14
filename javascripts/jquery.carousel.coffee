@@ -1,7 +1,7 @@
 ###
 jQuery Carousel
 Copyright 2010 - 2014 Kevin Sylvestre
-1.2.0
+1.2.2
 ###
 
 "use strict"
@@ -82,8 +82,6 @@ class Carousel
     animating = "#{direction}ing"
     index = @$previews().index($pending)
 
-    console.debug(index)
-
     $pages = @$pages()
 
     $pending.addClass(direction)
@@ -93,12 +91,11 @@ class Carousel
     $pending.addClass(animating)
 
     $pages.removeClass(activated)
+    $($pages.get(index)).addClass(activated)
 
     callback = ->
       $active.removeClass(activated).removeClass(animating)
       $pending.addClass(activated).removeClass(animating).removeClass(direction)
-
-      $($pages.get(index)).addClass(activated)
 
     Animation.execute($active, callback)
 

@@ -3,7 +3,7 @@
 /*
 jQuery Carousel
 Copyright 2010 - 2014 Kevin Sylvestre
-1.2.0
+1.2.2
  */
 
 (function() {
@@ -142,17 +142,16 @@ Copyright 2010 - 2014 Kevin Sylvestre
       cycling = this.interval;
       animating = "" + direction + "ing";
       index = this.$previews().index($pending);
-      console.debug(index);
       $pages = this.$pages();
       $pending.addClass(direction);
       $pending.offset().position;
       $active.addClass(animating);
       $pending.addClass(animating);
       $pages.removeClass(activated);
+      $($pages.get(index)).addClass(activated);
       callback = function() {
         $active.removeClass(activated).removeClass(animating);
-        $pending.addClass(activated).removeClass(animating).removeClass(direction);
-        return $($pages.get(index)).addClass(activated);
+        return $pending.addClass(activated).removeClass(animating).removeClass(direction);
       };
       return Animation.execute($active, callback);
     };

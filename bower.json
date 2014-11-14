@@ -1,6 +1,6 @@
 {
   "name": "carousel",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "main": [ "./javascripts/jquery.carousel.js","./stylesheets/jquery.carousel.css" ],
   "ignore": 
   [

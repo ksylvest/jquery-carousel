@@ -1,7 +1,7 @@
 /*
  * jQuery Carousel
  * Copyright 2010 - 2014 Kevin Sylvestre
- * 1.2.0
+ * 1.2.2
  */
 
 @import ../bourbon/bourbon
@@ -22,6 +22,24 @@ $duration: 0.4s
 .carousel
   position: relative
   text-align: center
+  &.dissolve .previews .preview
+    &.active
+      top: 0
+      left: 0
+      +opacity(1.0)
+      &.nexting,&.preving
+        left: 0
+        +opacity(0.0)
+    &.next
+      left: 0
+      +opacity(0.0)
+      &.nexting
+        +opacity(1.0)
+    &.prev
+      left: 0
+      +opacity(0.0)
+      &.preving
+        +opacity(1.0)
   .previews
     overflow: hidden
     position: relative

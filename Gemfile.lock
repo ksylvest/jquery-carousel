@@ -6,12 +6,12 @@ GEM
       thor
     haml (4.0.5)
       tilt
-    jasmine (2.0.3)
-      jasmine-core (~> 2.0.0)
+    jasmine (2.1.0)
+      jasmine-core (~> 2.1.0)
       phantomjs
       rack (>= 1.2.1)
       rake
-    jasmine-core (2.0.2)
+    jasmine-core (2.1.0)
     neat (1.7.0)
       bourbon (>= 4.0)
       sass (>= 3.3)

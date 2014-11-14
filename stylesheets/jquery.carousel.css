@@ -1,10 +1,33 @@
 /* jQuery Carousel
  * Copyright 2010 - 2014 Kevin Sylvestre
- * 1.2.0
+ * 1.2.2
  */
 .carousel {
   position: relative;
   text-align: center; }
+  .carousel.dissolve .previews .preview.active {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+    .carousel.dissolve .previews .preview.active.nexting, .carousel.dissolve .previews .preview.active.preving {
+      left: 0;
+      opacity: 0;
+      filter: alpha(opacity=0); }
+  .carousel.dissolve .previews .preview.next {
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+    .carousel.dissolve .previews .preview.next.nexting {
+      opacity: 1;
+      filter: alpha(opacity=100); }
+  .carousel.dissolve .previews .preview.prev {
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0); }
+    .carousel.dissolve .previews .preview.prev.preving {
+      opacity: 1;
+      filter: alpha(opacity=100); }
   .carousel .previews {
     overflow: hidden;
     position: relative;
