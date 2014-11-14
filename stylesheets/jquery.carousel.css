@@ -1,6 +1,6 @@
 /* jQuery Carousel
  * Copyright 2010 - 2014 Kevin Sylvestre
- * 1.1.9
+ * 1.2.0
  */
 .carousel {
   position: relative;
@@ -64,7 +64,7 @@
       background: rgba(0, 0, 0, 0.4); }
       .carousel .controls .pages .page:hover {
         background: rgba(0, 0, 0, 0.6); }
-      .carousel .controls .pages .page .active {
+      .carousel .controls .pages .page.active {
         background: rgba(0, 0, 0, 0.8); }
   .carousel .controls .prev, .carousel .controls .next {
     font-size: 40px;

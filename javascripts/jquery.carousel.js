@@ -3,7 +3,7 @@
 /*
 jQuery Carousel
 Copyright 2010 - 2014 Kevin Sylvestre
-1.1.9
+1.2.0
  */
 
 (function() {
@@ -69,7 +69,8 @@ Copyright 2010 - 2014 Kevin Sylvestre
 
   Carousel = (function() {
     Carousel.defaults = {
-      cycle: 5000
+      cycle: 5000,
+      active: 'active'
     };
 
     function Carousel($el, settings) {
@@ -79,7 +80,8 @@ Copyright 2010 - 2014 Kevin Sylvestre
       this.$el = $el;
       this.settings = $.extend({}, Carousel.defaults, settings);
       if (!this.$active().length) {
-        this.$previews().first().toggleClass('active');
+        this.$pages().first().toggleClass(this.settings.active);
+        this.$previews().first().toggleClass(this.settings.active);
       }
       if (settings.cycle != null) {
         this.cycle();
@@ -113,6 +115,10 @@ Copyright 2010 - 2014 Kevin Sylvestre
       return this.$(".previews .preview");
     };
 
+    Carousel.prototype.$pages = function() {
+      return this.$(".pages .page");
+    };
+
     Carousel.prototype.$active = function() {
       return this.$(".previews .preview.active");
     };
@@ -129,19 +135,24 @@ Copyright 2010 - 2014 Kevin Sylvestre
     };
 
     Carousel.prototype.swap = function($active, $pending, direction, activated) {
-      var animating, callback, cycling;
+      var $pages, animating, callback, cycling, index;
       if (activated == null) {
-        activated = 'active';
+        activated = this.settings.active;
       }
       cycling = this.interval;
       animating = "" + direction + "ing";
+      index = this.$previews().index($pending);
+      console.debug(index);
+      $pages = this.$pages();
       $pending.addClass(direction);
       $pending.offset().position;
       $active.addClass(animating);
       $pending.addClass(animating);
+      $pages.removeClass(activated);
       callback = function() {
         $active.removeClass(activated).removeClass(animating);
-        return $pending.addClass(activated).removeClass(animating).removeClass(direction);
+        $pending.addClass(activated).removeClass(animating).removeClass(direction);
+        return $($pages.get(index)).addClass(activated);
       };
       return Animation.execute($active, callback);
     };

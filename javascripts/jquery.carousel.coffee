@@ -1,7 +1,7 @@
 ###
 jQuery Carousel
 Copyright 2010 - 2014 Kevin Sylvestre
-1.1.9
+1.2.0
 ###
 
 "use strict"
@@ -35,12 +35,14 @@ class Animation
 
 class Carousel
 
-  @defaults: { cycle: 5000 }
+  @defaults: { cycle: 5000, active: 'active' }
 
   constructor: ($el, settings = {}) ->
     @$el = $el
     @settings = $.extend {}, Carousel.defaults, settings
-    @$previews().first().toggleClass('active') unless @$active().length
+    unless @$active().length
+      @$pages().first().toggleClass(@settings.active)
+      @$previews().first().toggleClass(@settings.active)
 
     if settings.cycle?
       @cycle()
@@ -62,6 +64,9 @@ class Carousel
   $previews: ->
     @$(".previews .preview")
 
+  $pages: ->
+    @$(".pages .page")
+
   $active: ->
     @$(".previews .preview.active")
 
@@ -72,9 +77,14 @@ class Carousel
     Timer.clear(@timer) if @timer
     delete @timer
 
-  swap: ($active, $pending, direction, activated = 'active') ->
+  swap: ($active, $pending, direction, activated = @settings.active) ->
     cycling = @interval
     animating = "#{direction}ing"
+    index = @$previews().index($pending)
+
+    console.debug(index)
+
+    $pages = @$pages()
 
     $pending.addClass(direction)
     $pending.offset().position
@@ -82,9 +92,13 @@ class Carousel
     $active.addClass(animating)
     $pending.addClass(animating)
 
+    $pages.removeClass(activated)
+
     callback = ->
       $active.removeClass(activated).removeClass(animating)
       $pending.addClass(activated).removeClass(animating).removeClass(direction)
+
+      $($pages.get(index)).addClass(activated)
 
     Animation.execute($active, callback)
 
